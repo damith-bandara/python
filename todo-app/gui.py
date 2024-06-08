@@ -7,12 +7,12 @@ add_button = sg.Button("Add")
 
 window = sg.Window('My todo app', layout=[[label], [input_box , add_button ]])
 
-# while True:
-#     event, values = window.read()
-#     print(event)
-#     print(values)
-#     match event:
-#         case "Add":
+while True:
+    event, values = window.read()
+    print(event)
+    print(values)
+    match event:
+        case "Add":
             
 window.read()
 window.close()
