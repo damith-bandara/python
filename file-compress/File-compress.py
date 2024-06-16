@@ -12,8 +12,9 @@ choose_btn_2 = sg.FolderBrowse("Choose" , key = "folders")
 compress_btn = sg.Button("Compress")
 txt_box = sg.Input(key = "com_file_name")
 label3 = sg.Text("Enter compressed file name")
+label4 = sg.Text(key = "output", text_color="Green", background_color= "White")
 
-window = sg.Window("File compress", layout=[[label1, input1 , choose_btn], [label2, input2, choose_btn_2], [label3,txt_box,compress_btn]])
+window = sg.Window("File compress", layout=[[label1, input1 , choose_btn], [label2, input2, choose_btn_2], [label3,txt_box],[compress_btn,label4]])
 
 while True:
     event , values = window.read()
@@ -23,6 +24,7 @@ while True:
     filename = values["com_file_name"]
     print("check - " ,filepaths , folderpath , filename)
     make_archive(filepaths , folderpath , filename)
+    window["output"].update(value = "Compression Completed !!!")
 
 
 window.close()
